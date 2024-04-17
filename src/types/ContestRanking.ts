@@ -1,3 +1,5 @@
+export type BadgeName = "Knight" | "Guardian";
+
 export interface UserContestRanking {
   attendedContestsCount: number;
   rating: number;
@@ -5,7 +7,7 @@ export interface UserContestRanking {
   topPercentage: number;
   totalParticipants: number;
   badge: {
-    name: string;
+    name: BadgeName;
   };
 }
 
@@ -20,7 +22,7 @@ export interface ContestRanking {
   ranking: number;
   rating: number;
   totalProblems: number;
-  trendDirection: string;
+  trendDirection: "UP" | "DOWN" | "NONE";
 }
 
 export interface ContestRankingResponse {
