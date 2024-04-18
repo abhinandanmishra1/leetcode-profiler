@@ -19,7 +19,7 @@ export const ContestRatingGraph = ({ username }: ContestRatingGraphProps) => {
   const startYear = new Date(data.userContestRankingHistory[0].contest.startTime*1000).getFullYear();
   
   return (
-    <div>
+    <div className="w-full h-full bg-dark-layer-1 p-4 shadow-dark-down-01 rounded-lg mt-2">
       <LeetCodeChart
         userContestRankingHistory={data?.userContestRankingHistory}
         userContestDetails={data.userContestRanking}

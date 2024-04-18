@@ -1,10 +1,14 @@
+import { TrendDirectionArrow } from "@leetcode/blocks";
+import { formatDateToFullDate } from "@leetcode/services";
+
 interface SelectedContestRatingProps {
-  contestRating: number,
-  ratingDirection: "UP" | "DOWN" | "NONE",
-  contestDate: number,
-  contestName: string,
-  problemsSolved: number,
-  totalProblems: number,
+  contestRating: number;
+  ratingDirection: "UP" | "DOWN" | "NONE";
+  contestDate: number;
+  contestName: string;
+  problemsSolved: number;
+  totalProblems: number;
+  ranking: number;
 }
 
 export const SelectedContestRating = ({
@@ -13,20 +17,36 @@ export const SelectedContestRating = ({
   contestRating,
   problemsSolved,
   totalProblems,
-  ratingDirection
+  ratingDirection,
+  ranking,
 }: SelectedContestRatingProps) => {
   return (
-    <div className='flex gap-4'>
+    <div className="flex gap-4">
       <div>
-        <p>Contest Rating</p>
-        <p>{Math.round(contestRating)}</p>
+        <p className="text-xs text-dark-label-3 font-medium">Contest Rating</p>
+        <p className="flex items-center gap-1 text-dark-label-1 text-xl md:text-2xl">
+          {Math.round(contestRating).toLocaleString("en-US")}
+          <TrendDirectionArrow className="text-xl md:text-2xl" direction={ratingDirection} />
+        </p>
       </div>
       <div>
-        {contestDate}
-        {contestName}
+        <p className="text-xs text-dark-label-3 font-medium">
+          {formatDateToFullDate(contestDate * 1000)}
+        </p>
+        <p className="text-xs leading-[22px] text-dark-label-1">
+          {contestName}
+        </p>
       </div>
-      <div></div>
-      <div>{problemsSolved}/{totalProblems}</div>
+      <div>
+        <p className="text-xs text-dark-label-3 font-medium">Rank</p>
+        <p className="text-xs leading-[22px] text-dark-label-1">{ranking}</p>
+      </div>
+      <div>
+        <p className="text-xs text-dark-label-3 font-medium">Solved</p>
+        <p className="text-xs leading-[22px] text-dark-label-1">
+          {problemsSolved}/{totalProblems}
+        </p>
+      </div>
     </div>
-  )
-}
+  );
+};

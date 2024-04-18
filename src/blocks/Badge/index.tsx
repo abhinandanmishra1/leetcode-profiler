@@ -13,7 +13,7 @@ export const Badge = ({ name }: BadgeProps) => {
 
   return (
     <>
-      <img src={badge[name]} alt={name} className="w-10 h-10" />
+      <img src={badge[name]} alt={name} className="h-auto w-full min-w-[30px] max-w-[40px]" />
     </>
   );
 };

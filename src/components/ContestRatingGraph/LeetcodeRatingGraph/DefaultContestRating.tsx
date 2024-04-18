@@ -1,14 +1,12 @@
 import { Badge } from "@leetcode/blocks";
-import { BadgeName, UserContestRanking } from "@leetcode/types";
+import { UserContestRanking } from "@leetcode/types";
 
 interface DefaultContestRatingProps {
   userContestDetails: UserContestRanking;
-  badgeName?: BadgeName;
 }
 
 export const DefaultContestRating = ({
   userContestDetails,
-  badgeName,
 }: DefaultContestRatingProps) => {
   const {
     attendedContestsCount,
@@ -18,33 +16,34 @@ export const DefaultContestRating = ({
     totalParticipants,
   } = userContestDetails;
 
+  const badgeName = userContestDetails?.badge?.name;
   return (
-    <div className="flex">
+    <div className="flex ">
       {" "}
-      <div className="flex items-center gap-4">
+      <div className="flex gap-4 items-start">
         <div className="flex flex-col">
-          <div className="text-sm text-dark-label-3">Contest Rating</div>
-          <div className="">{Math.round(rating)}</div>
+          <div className="text-xs text-dark-label-3 font-medium">Contest Rating</div>
+          <div className="text-dark-label-1 text-xl md:text-2xl">{Math.round(rating).toLocaleString("en-US")}</div>
         </div>
         {badgeName && (
-          <div className="flex items-center">
+          <div className="flex items-center gap-1">
             <Badge name={badgeName} />
             <div className="flex flex-col">
-              <div className="">Level</div>
-              <div className="">{badgeName}</div>
+              <div className="text-xs text-dark-label-3 font-medium">Level</div>
+              <div className="text-sm leading-[22px] text-dark-blue-s">{badgeName}</div>
             </div>
           </div>
         )}
-        <div className="">
-          <div className="">Global Ranking</div>
-          <div className="">
-            {globalRanking}
-            <span>/{totalParticipants}</span>
+        <div className="text-xs">
+          <div className="text-dark-label-3 font-medium">Global Ranking</div>
+          <div className="text-dark-label-1 font-medium leading-[22px]">
+            {globalRanking.toLocaleString("en-US")}
+            <span className="text-dark-label-4 font-medium">/{totalParticipants.toLocaleString("en-US")}</span>
           </div>
         </div>
-        <div className="">
-          <div className="">Attended</div>
-          <div className="">{attendedContestsCount}</div>
+        <div className="hidden md:block text-xs">
+          <div className="text-dark-label-3 font-medium">Attended</div>
+          <div className="text-dark-label-1 font-medium leading-[22px]">{attendedContestsCount.toLocaleString("en-US")}</div>
         </div>
       </div>
     </div>
