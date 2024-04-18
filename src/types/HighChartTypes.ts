@@ -89,3 +89,87 @@ export interface HighChartMouseoverEvent {
   };
   type: "mouseover";
 }
+
+export type TopRatingHistogramOptions = {
+  chart: {
+    renderTo: string;
+    type: string;
+    backgroundColor: string;
+    height: number;
+  };
+  xAxis: {
+    categories: any[];
+    labels: {
+      enabled: boolean;
+    };
+    lineColor: string;
+  };
+  yAxis: {
+    min: number;
+    title: {
+      enabled: boolean;
+    };
+    gridLineColor: string;
+    labels: {
+      enabled: boolean;
+    };
+  };
+  tooltip: {
+    headerFormat: string;
+    pointFormat: string;
+    enabled: boolean;
+  };
+  title: {
+    text: string;
+    align?: string;
+    style?: {
+      color: string;
+      fontSize: string;
+    };
+  };
+  subtitle: {
+    text: string;
+    align?: string;
+    style?: {
+      color: string;
+      fontSize: string;
+    };
+  };
+  legend: {
+    enabled: boolean;
+  };
+  minPointLength: number;
+  plotOptions: {
+    series: {
+      pointPadding: number;
+      groupPadding: number;
+    };
+    threshold: number;
+  };
+  series: {
+    data: any[];
+    color: string;
+    borderColor: string;
+    borderRadius: number;
+    minHeight: number;
+    depth: number;
+    states: {
+      hover: {
+        color: string;
+        animation: {
+          duration: number;
+        };
+      };
+    };
+    point: {
+      events: {
+        mouseOver: (event: HighChartMouseoverEvent) => void;
+        mouseOut: (event: HighChartMouseoverEvent) => void;
+      };
+    };
+    threshold: number;
+  }[];
+  credits: {
+    enabled: boolean;
+  };
+};
