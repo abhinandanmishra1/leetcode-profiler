@@ -87,6 +87,26 @@
   --tw-bg-opacity: 1;
   background-color: rgb(219 219 219 / var(--tw-bg-opacity));
 }
+.bg-dark-green-1 {
+  background-color: #2cbb5d40;
+}
+
+.bg-dark-olive {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 184 163 / var(--tw-bg-opacity));
+}
+
+.bg-dark-yellow-1 {
+  background-color: #ffc01e40;
+}
+
+.bg-dark-yellow {
+  background-color: #ffc01e;
+}
+
+.bg-dark-red-s {
+  background-color: #ef4743;
+}
 
 .bg-dark-green-3 {
   --tw-bg-opacity: 1;
