@@ -28,7 +28,6 @@ export const CircularProgressBar = ({
   label = `Loading...`,
   labelColor = `#333`,
   spinnerMode = false,
-  spinnerSpeed = 1,
 }: CircularProgressBarProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const toggleHover = () => setIsHovered(isHovered => !isHovered);

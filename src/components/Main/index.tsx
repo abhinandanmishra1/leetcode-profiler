@@ -3,6 +3,7 @@ import {
   ProblemsSolvedStats,
   TopRatingHistogram,
 } from "@leetcode/components";
+import "../../index.module.css";
 
 export const Main = () => {
   return (

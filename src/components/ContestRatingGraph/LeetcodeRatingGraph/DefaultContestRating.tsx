@@ -12,7 +12,6 @@ export const DefaultContestRating = ({
     attendedContestsCount,
     rating,
     globalRanking,
-    topPercentage,
     totalParticipants,
   } = userContestDetails;
 

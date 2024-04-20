@@ -25,7 +25,11 @@
     "paths": {
       "@leetcode/*": ["./*"]
     },
+
+    /* Source maps */
+    "declaration": true,
+    "typeRoots": ["./dist/index.d.ts", "node_modules/@types"],
   },
-  "include": ["src"],
+  "include": ["src", "./index.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
