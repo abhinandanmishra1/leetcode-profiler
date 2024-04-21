@@ -1,10 +1,10 @@
+import { RatingHistogram } from "./RatingHistogram";
 import { useTopRatingHistogram } from "@leetcode/hooks";
-import { LeetCodeTopRatingHistogram } from "./LeetcodeTopRatingHistogram";
 
-interface TopRatingHistogramProps {
+interface LeetcodeTopRatingHistogramProps {
   username: string;
 }
-export const TopRatingHistogram = ({ username }: TopRatingHistogramProps) => {
+export const LeetcodeTopRatingHistogram = ({ username }: LeetcodeTopRatingHistogramProps) => {
   const {
     contestRatingData,
     isLoading,
@@ -18,7 +18,7 @@ export const TopRatingHistogram = ({ username }: TopRatingHistogramProps) => {
 
   return (
     <div className="w-full h-full bg-dark-layer-1 p-4 shadow-dark-down-01 rounded-lg mt-2">
-      <LeetCodeTopRatingHistogram
+      <RatingHistogram
         data={histogramData}
         topPercentage={topPercentage}
         ratingInfoData={contestRatingData || []}

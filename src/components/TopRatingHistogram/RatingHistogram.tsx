@@ -1,19 +1,19 @@
-import HighchartsReact from "highcharts-react-official";
 import Highcharts from "highcharts";
-import { useTopRatingHistogramOptions } from "@leetcode/hooks/useTopRatingHistogramOptions";
+import HighchartsReact from "highcharts-react-official";
 import { RatingInfo } from "@leetcode/types";
 import { Show } from "@leetcode/blocks";
+import { useTopRatingHistogramOptions } from "@leetcode/hooks/useTopRatingHistogramOptions";
 
-interface LeetCodeTopRatingHistogramProps {
+interface RatingHistogramProps {
   data: any;
   topPercentage: any;
   ratingInfoData: RatingInfo[];
 }
-export const LeetCodeTopRatingHistogram = ({
+export const RatingHistogram = ({
   data,
   topPercentage,
   ratingInfoData,
-}: LeetCodeTopRatingHistogramProps) => {
+}: RatingHistogramProps) => {
   const { options, currentIndex, isHovered } = useTopRatingHistogramOptions({
     data,
   });

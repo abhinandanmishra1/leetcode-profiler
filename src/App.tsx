@@ -1,11 +1,12 @@
 import './App.css'
-import { Main } from './components/Main'
+
+import { Example } from '@leetcode/examples'
 
 function App() {
 
   return (
     <>
-     <Main />
+     <Example />
     </>
   )
 }

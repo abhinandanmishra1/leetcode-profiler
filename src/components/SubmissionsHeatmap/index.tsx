@@ -1,28 +1,26 @@
-import { DccBadge, Show } from "@leetcode/blocks";
-import { Dropdown } from "@leetcode/blocks/DropDown";
+import "react-tooltip/dist/react-tooltip.css";
+
+import { DccBadge, Dropdown, Show } from "@leetcode/blocks";
+import { cloneElement, useState } from "react";
+import { getDateFromIsoFormat, getMonthName } from "@leetcode/services";
 import {
   useGetActiveYearsOptions,
   useGetSubmissionsCalendarData,
   useSubmissionsCalendar,
   useTimestampToDccBadge,
-} from "@leetcode/hooks/useSubmissionsCalendar";
-import { getDateFromIsoFormat, getMonthName } from "@leetcode/services";
-import { Option } from "@leetcode/types";
-import { cloneElement, useState } from "react";
-import ActivityCalendar from "react-activity-calendar";
-import { Tooltip as ReactTooltip } from "react-tooltip";
-import "react-tooltip/dist/react-tooltip.css";
+} from "@leetcode/hooks";
 
-interface SubmissionsHeatmapProps {
+import ActivityCalendar from "react-activity-calendar";
+import { DefaultActiveYearOption } from "@leetcode/constants";
+import { Option } from "@leetcode/types";
+import { Tooltip as ReactTooltip } from "react-tooltip";
+
+interface LeetcodeSubmissionsHeatmap {
   username: string;
 }
 
-export const LeetcodeHeatMap = ({ username }: SubmissionsHeatmapProps) => {
-  const currentYear = new Date().getFullYear();
-
-  const DefaultOption = { name: "Current", value: currentYear.toString() };
-
-  const [selectedYear, setSelectedYear] = useState<Option>(DefaultOption);
+export const LeetcodeSubmissionsHeatmap = ({ username }: LeetcodeSubmissionsHeatmap) => {
+  const [selectedYear, setSelectedYear] = useState<Option>(DefaultActiveYearOption);
   const { data, isLoading, isError } = useSubmissionsCalendar(
     username,
     selectedYear.value

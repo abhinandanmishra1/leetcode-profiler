@@ -1,3 +1,4 @@
 export * from "./ContestRatingGraph";
 export * from "./TopRatingHistogram";
-export * from "./ProblemsSolvedStats";
+export * from "./SolvedProblemsStats";
+export * from "./SubmissionsHeatmap";

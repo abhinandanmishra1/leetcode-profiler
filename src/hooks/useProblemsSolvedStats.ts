@@ -1,9 +1,10 @@
+import { getSolvedProblemsStatsData } from "@leetcode/apis";
 import { useQuery } from "@leetcode/services";
-import { getProblemsSolvedStatsData } from "@leetcode/apis";
-export const useProblemsSolvedStats = (username: string) => {
+
+export const useSolvedProblemsStats = (username: string) => {
     return useQuery({
         queryKey: ["problemsSolvedStats", username],
-        queryFn: () => getProblemsSolvedStatsData(username),
+        queryFn: () => getSolvedProblemsStatsData(username),
         enabled: !!username
     });
 }

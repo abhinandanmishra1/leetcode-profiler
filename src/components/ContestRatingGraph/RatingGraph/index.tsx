@@ -1,23 +1,25 @@
+import { ContestRanking, UserContestRanking } from "@leetcode/types";
+
+import { DefaultContestRating } from "./DefaultContestRating";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import { Show } from "@leetcode/blocks";
-import { ContestRanking, UserContestRanking } from "@leetcode/types";
-import { DefaultContestRating } from "./DefaultContestRating";
 import { SelectedContestRating } from "./SelectedContestRating";
+import { Show } from "@leetcode/blocks";
 import { useHighChartOptions } from "@leetcode/hooks/useHighChartOptions";
 
-interface LeetCodeChartProps {
+interface ContestRatingGraphProps {
   userContestRankingHistory: ContestRanking[];
   startYear: number;
   currentYear: number;
   userContestDetails: UserContestRanking;
 }
-export const LeetCodeChart = ({
+
+export const ContestRatingGraph = ({
   userContestRankingHistory,
   startYear,
   currentYear,
   userContestDetails,
-}: LeetCodeChartProps) => {
+}: ContestRatingGraphProps) => {
   const { isHovered, currentHoveredIndex, options } = useHighChartOptions({
     userContestRankingHistory,
     startYear,

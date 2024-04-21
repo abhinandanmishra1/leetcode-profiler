@@ -1,12 +1,12 @@
 import { CircularProgressBar } from "@leetcode/blocks";
 import { LevelProblemsStats } from "./LevelProblemsStats";
-import { useProblemsSolvedStats } from "@leetcode/hooks";
+import { useSolvedProblemsStats } from "@leetcode/hooks";
 
-interface ProblemsSolvedStatsProps {
+interface LeetcodeSolvedProblemsStats {
   username: string;
 }
-export const ProblemsSolvedStats = ({ username }: ProblemsSolvedStatsProps) => {
-  const { data, isLoading, isError } = useProblemsSolvedStats(username);
+export const LeetcodeSolvedProblemsStats = ({ username }: LeetcodeSolvedProblemsStats) => {
+  const { data, isLoading, isError } = useSolvedProblemsStats(username);
   if(isLoading || !data) return <>Loading...</>;
   if(isError) return <>Error</>;
 
