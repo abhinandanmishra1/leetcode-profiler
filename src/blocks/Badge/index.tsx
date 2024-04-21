@@ -17,3 +17,5 @@ export const Badge = ({ name }: BadgeProps) => {
     </>
   );
 };
+
+export * from "./DccBadge";

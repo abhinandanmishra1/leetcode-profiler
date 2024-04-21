@@ -11,7 +11,7 @@ export const ProblemsSolvedStats = ({ username }: ProblemsSolvedStatsProps) => {
   if(isError) return <>Error</>;
 
   return (
-    <div className="w-1/2 bg-dark-layer-1 p-4 shadow-dark-down-01 rounded-lg">
+    <div className="w-full bg-dark-layer-1 p-4 shadow-dark-down-01 rounded-lg">
       <div className="px-[13px] text-xs font-medium text-dark-label-3">Solved Problems</div>
       <div className="flex gap-4">
         <div className="mt-6 mr-4 p-2">

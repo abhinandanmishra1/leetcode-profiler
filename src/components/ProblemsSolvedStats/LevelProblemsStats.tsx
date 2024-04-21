@@ -25,7 +25,9 @@ export const LevelProblemsStats = ({
             <span className="text-xs text-dark-label-3">/{totalProblems}</span>
           </p>
         </div>
-        <p className="text-xs leading-[22px] text-dark-label-1">{beats}%</p>
+        <p className="text-xs leading-[22px] text-dark-label-3">
+          Beats <span className="text-dark-label-2">{beats.toFixed(1)}%</span>
+        </p>
       </div>
       <ProgressBar width={completedPercentage} level={level} />
     </div>

@@ -3,7 +3,8 @@ import {
   ProblemsSolvedStats,
   TopRatingHistogram,
 } from "@leetcode/components";
-import "../../index.module.css";
+import "index.css";
+import { LeetcodeHeatMap } from "../SubmissionsHeatmap";
 
 export const Main = () => {
   return (
@@ -17,8 +18,9 @@ export const Main = () => {
           <TopRatingHistogram username="abhinandan_mishra_1" />
         </div>
       </div>
-      <div className="relative w-full p-2">
+      <div className="relative w-full p-2 flex flex-col gap-2">
         <ProblemsSolvedStats username="abhinandan_mishra_1" />
+        <LeetcodeHeatMap username="abhinandan_mishra_1" />
       </div>
     </div>
   );
