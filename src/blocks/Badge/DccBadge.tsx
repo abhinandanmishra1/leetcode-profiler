@@ -1,7 +1,7 @@
-import { Badge } from "@leetcode/types";
+import { HeatmapBadge } from "@leetcode/types";
 
 interface DccBadgeProps {
-  badge: Badge;
+  badge: HeatmapBadge;
   className?: string;
 }
 

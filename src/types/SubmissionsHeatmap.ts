@@ -1,11 +1,9 @@
-export interface Badge {
-  name: string;
-  icon: string;
-}
+import { Badge } from "./Badges";
 
+export type HeatmapBadge = Pick<Badge, "name" | "icon">;
 export interface DccBadge {
   timestamp: number;
-  badge: Badge;
+  badge: HeatmapBadge;
 }
 
 export interface SubmissionCalendar {

@@ -1,15 +1,16 @@
-import { getSubmissionsCalendar } from "@leetcode/apis";
-import { daysInMonths } from "@leetcode/constants";
-import { getMonthName, useQuery } from "@leetcode/services";
 import {
   Activity,
-  Badge,
   DccBadge,
+  HeatmapBadge,
   Option,
   SubmissionCalendar,
 } from "@leetcode/types";
-import { format } from "date-fns";
+import { getMonthName, useQuery } from "@leetcode/services";
 import { useEffect, useMemo, useState } from "react";
+
+import { daysInMonths } from "@leetcode/constants";
+import { format } from "date-fns";
+import { getSubmissionsCalendar } from "@leetcode/apis";
 
 export const useSubmissionsCalendar = (username: string, year: string) => {
   return useQuery({
@@ -27,6 +28,7 @@ const getLevel = (count: number) => {
 
     return 4;
 }
+
 export const useGetSubmissionsCalendarData = (
   data: string,
   selectedYear: Option
@@ -203,6 +205,6 @@ export const useTimestampToDccBadge = (dccBadges: DccBadge[]) => {
       const month = new Date(Number(badge.timestamp) * 1000).getMonth();
       acc[month] = badge.badge;
       return acc;
-    }, {} as { [month: number]: Badge });
+    }, {} as { [month: number]: HeatmapBadge });
   }, [dccBadges]);
 };

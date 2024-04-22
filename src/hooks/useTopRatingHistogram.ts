@@ -1,7 +1,7 @@
-import { useQuery } from "@leetcode/services";
 import { getHistogramData } from "@leetcode/apis";
-import { useMemo } from "react";
 import { useContestRatingGraph } from "./useContestRatingGraph";
+import { useMemo } from "react";
+import { useQuery } from "@leetcode/services";
 
 type ColumnType = {
   y: number;

@@ -1,9 +1,12 @@
 import "index.css";
 
-import { LeetcodeContestRatingGraph } from "../components/ContestRatingGraph";
-import { LeetcodeSolvedProblemsStats } from "../components/SolvedProblemsStats";
-import { LeetcodeSubmissionsHeatmap } from "../components/SubmissionsHeatmap";
-import { LeetcodeTopRatingHistogram } from "../components/TopRatingHistogram";
+import {
+  LeetcodeBadges,
+  LeetcodeContestRatingGraph,
+  LeetcodeSolvedProblemsStats,
+  LeetcodeSubmissionsHeatmap,
+  LeetcodeTopRatingHistogram,
+} from "@leetcode/components";
 
 export const Example = () => {
   return (
@@ -20,6 +23,7 @@ export const Example = () => {
       <div className="relative w-full p-2 flex flex-col gap-2">
         <LeetcodeSolvedProblemsStats username="abhinandan_mishra_1" />
         <LeetcodeSubmissionsHeatmap username="abhinandan_mishra_1" />
+        <LeetcodeBadges username="abhinandan_mishra_1" />
       </div>
     </div>
   );
