@@ -11,7 +11,7 @@ interface BadgesProps {
   data: Badge[];
 }
 export const Badges = ({ data }: BadgesProps) => {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const [view, setView] = useState<"left" | "right">("left");
 
   const toggleModal = () => {

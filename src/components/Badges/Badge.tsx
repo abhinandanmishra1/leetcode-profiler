@@ -35,7 +35,7 @@ export const LcBadge = ({
         data-tooltip-content={hoverText}
         src={imgUrl}
         alt={name}
-        className={`h-auto w-full min-w-[30px] max-w-[80px] cursor-pointer ${
+        className={`h-auto min-w-[30px] max-w-[80px] cursor-pointer ${
           className || ""
         }`}
         onClick={toggleGifVisibility}
