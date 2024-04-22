@@ -1,5 +1,4 @@
 import { Badge } from "@leetcode/types";
-
 import { CrossIcon } from "@leetcode/assets";
 import { LcBadge } from "./Badge";
 
@@ -23,14 +22,14 @@ interface CategoryBadgesCollectionProps {
 const CategoryBadgesCollection = ({ data, category }: CategoryBadgesCollectionProps) => {
   const formattedCategoryName = category.split("_").map(c => c.charAt(0) + c.slice(1).toLowerCase()).join(" ");
   return <div className="mt-[24px]">
-    <div className="text-dark-label-2">
+    <div className="text-xs text-dark-label-2">
       {formattedCategoryName} Medals
     </div>
     <div className="w-full px-2">
-      <div className="mt-6 flex flex-wrap w-full gap-2">
+      <div className="grid grid-cols-4 gap-x-[50px]">
         {
           data.map((badge) => (
-            <LcBadge badge={badge} />
+            <LcBadge badge={badge} className="w-[56px] h-[56px] mt-6"  showFooter={true}/>
           ))
         }
       </div>
@@ -63,7 +62,7 @@ export const AllBadgesModal = ({ data, showModal, toggleModal }: AllBadgesModalP
           </div>
           <div className="my-8 inline-block min-w-full transform overflow-hidden rounded-[13px] text-left transition-all bg-dark-overlay-3 md:min-w-[420px] shadow-dark-level4 w-[100%] max-w-[600px] p-5 opacity-100 scale-100">
             <div className="flex items-center justify-between border-b-1 border-dark-divider-border-2">
-              <h3 className="text-lg font-medium text-dark-label-2">Badge List</h3>
+              <h3 className="text-lg font-medium text-dark-label-1">Badge List</h3>
               <button className="cursor-pointer rounded transition-all hover:bg-dark-fill-3">
                 <CrossIcon onClick={toggleModal} className="text-dark-label-1" />
               </button>

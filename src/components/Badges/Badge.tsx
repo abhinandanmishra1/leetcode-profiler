@@ -13,6 +13,7 @@ interface BadgeProps {
 export const LcBadge = ({
   badge: {
     name,
+    displayName,
     medal: {
       config: { iconGif, iconGifBackground },
     },
@@ -29,7 +30,7 @@ export const LcBadge = ({
   const [gifVisible, setGifVisible] = React.useState(false);
   const toggleGifVisibility = () => setGifVisible((isVisible) => !isVisible);
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center justify-center">
       <img
         data-tooltip-id="badge-tooltip"
         data-tooltip-content={hoverText}
@@ -43,7 +44,7 @@ export const LcBadge = ({
       <Show when={!!showFooter}>
         <div className="h-[40px] space-y-1">
           <p className="text-sm mt-2 max-w-[96px] overflow-hidden truncate text-center cursor-pointer text-dark-label-1">
-            {name}
+            {displayName}
           </p>
           <p className="text-xs text-center text-dark-label-3 font-medium">
             {creationDate}
