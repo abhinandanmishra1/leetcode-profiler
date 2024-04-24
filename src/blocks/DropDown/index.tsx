@@ -15,9 +15,9 @@ const SelectedOptionIcon = () => {
         aria-hidden="true"
       >
         <path
-          fill-rule="evenodd"
+          fillRule="evenodd"
           d="M9.688 15.898l-3.98-3.98a1 1 0 00-1.415 1.414L8.98 18.02a1 1 0 001.415 0L20.707 7.707a1 1 0 00-1.414-1.414l-9.605 9.605z"
-          clip-rule="evenodd"
+          clipRule="evenodd"
         ></path>
       </svg>
     </span>
@@ -60,9 +60,9 @@ export const Dropdown = ({
             aria-hidden="true"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M4.929 7.913l7.078 7.057 7.064-7.057a1 1 0 111.414 1.414l-7.77 7.764a1 1 0 01-1.415 0L3.515 9.328a1 1 0 011.414-1.414z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             ></path>
           </svg>
         </button>
@@ -82,6 +82,7 @@ export const Dropdown = ({
                 id={value}
                 role="option"
                 tabIndex={-1}
+                key={crypto.randomUUID()}
                 aria-selected="true"
                 onClick={() => {
                   onOptionClick({ name, value });

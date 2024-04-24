@@ -29,7 +29,7 @@ const CategoryBadgesCollection = ({ data, category }: CategoryBadgesCollectionPr
       <div className="grid grid-cols-4 gap-x-[50px]">
         {
           data.map((badge) => (
-            <LcBadge badge={badge} className="w-[56px] h-[56px] mt-6"  showFooter={true}/>
+            <LcBadge key={formattedCategoryName} badge={badge} className="w-[56px] h-[56px] mt-6"  showFooter={true}/>
           ))
         }
       </div>
@@ -70,7 +70,7 @@ export const AllBadgesModal = ({ data, showModal, toggleModal }: AllBadgesModalP
             <div className="max-h-[600px] overflow-y-auto">
               {
                 Object.entries(categoryWiseBadges).map(({ 0: categoryType, 1: categoryData }) => {
-                  return <CategoryBadgesCollection data={categoryData} category={categoryType} />
+                  return <CategoryBadgesCollection key={categoryType} data={categoryData} category={categoryType} />
                 })
               }
             </div>

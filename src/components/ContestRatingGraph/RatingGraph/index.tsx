@@ -11,7 +11,7 @@ interface ContestRatingGraphProps {
   userContestRankingHistory: ContestRanking[];
   startYear: number;
   currentYear: number;
-  userContestDetails: UserContestRanking;
+  userContestDetails?: UserContestRanking;
 }
 
 export const ContestRatingGraph = ({

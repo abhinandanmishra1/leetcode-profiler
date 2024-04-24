@@ -33,7 +33,7 @@ export const LeetcodeTopRatingHistogram = ({
         </Show>
         <Show
           when={
-            !histogramData || histogramData.length === 0 || topPercentage === 0
+            contestRatingData?.length === 0 || topPercentage === 0 
           }
         >
           <div className=" bg-dark-layer-1 text-dark-label-1 flex items-center h-full justify-center">

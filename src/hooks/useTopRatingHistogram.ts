@@ -11,13 +11,15 @@ type ColumnType = {
 export const useTopRatingHistogram = (username: string) => {
   const {
     data: contestRatings,
+    isLoading: contestRatingGraphLoading,
+    isError: contestRatingGraphError
   } = useContestRatingGraph(username);
 
   const { rating: userRating, topPercentage } = contestRatings?.userContestRanking || {
     rating: 0,
     topPercentage: 0,
   }
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading: histogramDataLoading, isError: histogramDataError } = useQuery({
     queryKey: ["histogramData"],
     queryFn: async () => {
       const { data } = await getHistogramData(username);
@@ -42,8 +44,8 @@ export const useTopRatingHistogram = (username: string) => {
 
   return {
     histogramData,
-    isLoading,
-    isError,
+    isLoading: contestRatingGraphLoading || histogramDataLoading,
+    isError: contestRatingGraphError || histogramDataError,
     topPercentage,
     contestRatingData: contestRatingHistogram
   }

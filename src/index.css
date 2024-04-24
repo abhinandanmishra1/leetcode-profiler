@@ -355,19 +355,32 @@
   position: relative;
 }
 
-/* .pentagon::before {
-  content: '';
-  position: absolute;
-  top: -25px;
-  border-left: 45px solid transparent;
-  border-right: 45px solid transparent;
-  border-bottom: 25px solid #7c7d7d;
-} */
-
 .pentagon::after {
   content: '';
   position: absolute;
-  bottom: -1.5em;
+  bottom: -25.3px;
+  border-left: 2.5em solid transparent;
+  border-right: 2.5em solid transparent;
+  border-top: 1.6em solid #7c7d7d;
+}
+
+.hexagon {
+  position: relative;
+}
+
+.hexagon::before {
+  content: '';
+  position: absolute;
+  top: -25.3px;
+  border-left: 45px solid transparent;
+  border-right: 45px solid transparent;
+  border-bottom: 25px solid #7c7d7d;
+}
+
+.hexagon::after {
+  content: '';
+  position: absolute;
+  bottom: -25.3px;
   border-left: 2.5em solid transparent;
   border-right: 2.5em solid transparent;
   border-top: 1.6em solid #7c7d7d;

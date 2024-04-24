@@ -14,9 +14,8 @@ export const LeetcodeBadges = ({ username }: LeetcodeBadgesProps) => {
         return <div>Error</div>;
     }
     
-    console.log(data)
     return (
-        <div className="max-w-[600px] w-full bg-dark-layer-1 p-4 shadow-dark-down-01 rounded-lg mt-2">
+        <div className="max-w-[600px] w-full min-h-[150px] bg-dark-layer-1 p-4 shadow-dark-down-01 rounded-lg mt-2">
             <Show when={!isLoading && !isError && !!data}>
                 <Badges data={data || []} />
             </Show>
