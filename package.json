@@ -1,12 +1,17 @@
 {
   "name": "leetcode-profiler",
   "private": false,
-  "version": "1.0.12",
+  "version": "1.0.14",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
   "types": "./dist/index.d.ts",
   "typings": "./dist/index.d.ts",
   "type": "module",
+  "homepage": "https://leetcode-profiler-example.vercel.app/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abhinandanmishra1/leetcode-profiler"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
