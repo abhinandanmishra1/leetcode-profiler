@@ -17,5 +17,5 @@ export const daysInMonths: Months = {
 
 export const DefaultActiveYearOption: Option = {
   name: "Current",
-  value: new Date().getFullYear().toString(),
+  // value: new Date().getFullYear().toString(),
 };

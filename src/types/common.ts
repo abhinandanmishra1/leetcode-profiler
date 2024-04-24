@@ -1,6 +1,6 @@
 export interface Option {
-  name: string;
-  value: string;
+  name?: string;
+  value?: string;
 }
 
 export type Months = { [key: number]: number };

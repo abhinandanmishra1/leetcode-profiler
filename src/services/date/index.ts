@@ -6,7 +6,7 @@ export const formatDateToFullDate = (date: number) => {
 
 
 export const getMonthName = (month: number) => {
-  return format(new Date(0, month), "MMM");
+  return format(new Date(1, month), "MMM");
 };
 
 export const getDateFromIsoFormat = (date: string) => {

@@ -33,7 +33,7 @@ export const ContestRatingGraph = ({
     trendDirection: ratingDirection,
     rating: contestRating,
     ranking
-  } = userContestRankingHistory[currentHoveredIndex];
+  } = userContestRankingHistory[currentHoveredIndex] || {};
 
   return (
     <>

@@ -1,10 +1,14 @@
+import { HistogramLoading, Show } from "@leetcode/blocks";
+
 import { RatingHistogram } from "./RatingHistogram";
 import { useTopRatingHistogram } from "@leetcode/hooks";
 
 interface LeetcodeTopRatingHistogramProps {
   username: string;
 }
-export const LeetcodeTopRatingHistogram = ({ username }: LeetcodeTopRatingHistogramProps) => {
+export const LeetcodeTopRatingHistogram = ({
+  username,
+}: LeetcodeTopRatingHistogramProps) => {
   const {
     contestRatingData,
     isLoading,
@@ -13,16 +17,33 @@ export const LeetcodeTopRatingHistogram = ({ username }: LeetcodeTopRatingHistog
     topPercentage,
   } = useTopRatingHistogram(username);
 
-  if (isLoading || !histogramData) return <>Loading...</>;
   if (isError) return <>Error</>;
 
   return (
     <div className="w-full h-full bg-dark-layer-1 p-4 shadow-dark-down-01 rounded-lg mt-2">
-      <RatingHistogram
-        data={histogramData}
-        topPercentage={topPercentage}
-        ratingInfoData={contestRatingData || []}
-      />
+      <Show
+        when={!isError && !isLoading && !!contestRatingData && !!histogramData}
+      >
+        <Show when={topPercentage > 0}>
+          <RatingHistogram
+            data={histogramData}
+            topPercentage={topPercentage}
+            ratingInfoData={contestRatingData || []}
+          />
+        </Show>
+        <Show
+          when={
+            !histogramData || histogramData.length === 0 || topPercentage === 0
+          }
+        >
+          <div className=" bg-dark-layer-1 text-dark-label-1 flex items-center h-full justify-center">
+            User has not participated in any contest
+          </div>
+        </Show>
+      </Show>
+      <Show when={isLoading || !contestRatingData}>
+        <HistogramLoading />
+      </Show>
     </div>
   );
 };

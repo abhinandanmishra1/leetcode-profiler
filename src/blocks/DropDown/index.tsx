@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { Option } from "@leetcode/types";
 import { Show } from "../Show";
+import { useState } from "react";
 
 const SelectedOptionIcon = () => {
   return (
@@ -22,11 +23,6 @@ const SelectedOptionIcon = () => {
     </span>
   );
 };
-
-interface Option {
-  name: string;
-  value: string;
-}
 
 interface DropdownProps {
   options: Option[];

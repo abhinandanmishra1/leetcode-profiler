@@ -24,17 +24,19 @@ export const LcBadge = ({
   className,
   showFooter,
 }: BadgeProps) => {
-  const imgUrl = icon.startsWith("https://")
-    ? icon
-    : `https://leetcode.com${icon}`;
+  const getImgUrl = () =>
+    (icon || "").startsWith("https://") ? icon : `https://leetcode.com${icon}`;
+
   const [gifVisible, setGifVisible] = React.useState(false);
   const toggleGifVisibility = () => setGifVisible((isVisible) => !isVisible);
+
+  if (!icon) return null;
   return (
     <div className="flex flex-col items-center justify-center">
       <img
         data-tooltip-id="badge-tooltip"
         data-tooltip-content={hoverText}
-        src={imgUrl}
+        src={getImgUrl()}
         alt={name}
         className={`h-auto min-w-[30px] max-w-[80px] cursor-pointer ${
           className || ""

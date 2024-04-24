@@ -23,7 +23,7 @@ export const LeetcodeSubmissionsHeatmap = ({ username }: LeetcodeSubmissionsHeat
   const [selectedYear, setSelectedYear] = useState<Option>(DefaultActiveYearOption);
   const { data, isLoading, isError } = useSubmissionsCalendar(
     username,
-    selectedYear.value
+    selectedYear.value,
   );
   const {
     submissionCalendar: subCalendar,

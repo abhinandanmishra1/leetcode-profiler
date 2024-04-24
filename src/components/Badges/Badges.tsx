@@ -1,4 +1,8 @@
-import { HorizontalThreeDotsIcon, LeftArrowIcon, RightArrowIcon } from "@leetcode/assets";
+import {
+  HorizontalThreeDotsIcon,
+  LeftArrowIcon,
+  RightArrowIcon,
+} from "@leetcode/assets";
 
 import { AllBadgesModal } from "./AllBadgesModal";
 import { Badge } from "@leetcode/types";
@@ -23,13 +27,14 @@ export const Badges = ({ data }: BadgesProps) => {
   };
 
   const getUrl = (iconUrl: string) => {
-    if (iconUrl.startsWith("https://")) {
+    if (iconUrl?.startsWith("https://")) {
       return iconUrl;
     }
 
     return `https://leetcode.com${iconUrl}`;
   };
 
+  if(data?.length === 0) return <>User doesn't have any badge  </>
   return (
     <div>
       <Show when={view === "left"}>
@@ -37,7 +42,7 @@ export const Badges = ({ data }: BadgesProps) => {
           <div className="flex flex-col">
             <p className="text-xs text-dark-label-3 font-medium">Badges</p>
             <p className="text-base leading-[22px] text-dark-label-1">
-              {data.length}
+              {data?.length}
             </p>
           </div>
           <RightArrowIcon
@@ -45,14 +50,14 @@ export const Badges = ({ data }: BadgesProps) => {
             className="cursor-pointer text-xl text-dark-label-3"
           />
         </div>
-        <Show when={data.length < 3}>
-          <LcBadge badge={data[0]} className="w-[72px] h-[72px]" />
+        <Show when={data?.length < 3}>
+          <LcBadge badge={data?.[0]} className="w-[72px] h-[72px]" />
         </Show>
-        <Show when={data.length >= 3}>
+        <Show when={data?.length >= 3}>
           <div className="flex items-center justify-center gap-2">
-            <LcBadge badge={data[1]} className="w-[56px] h-[56px]" />
-            <LcBadge badge={data[0]} className="w-[72px] h-[72px]" />
-            <LcBadge badge={data[2]} className="w-[56px] h-[56px]" />
+            <LcBadge badge={data?.[1]} className="w-[56px] h-[56px]" />
+            <LcBadge badge={data?.[0]} className="w-[72px] h-[72px]" />
+            <LcBadge badge={data?.[2]} className="w-[56px] h-[56px]" />
           </div>
         </Show>
         <div className="flex flex-col">
@@ -60,7 +65,7 @@ export const Badges = ({ data }: BadgesProps) => {
             Most Recent Badge
           </p>
           <p className="text-base leading-[22px] text-dark-label-1">
-            {data[0].name}
+            {data?.[0]?.name}
           </p>
         </div>
       </Show>
@@ -76,8 +81,8 @@ export const Badges = ({ data }: BadgesProps) => {
             className="cursor-pointer text-xl text-dark-label-3"
           />
         </div>
-        <Show when={data.length <= 3}>
-          {data.map((badge) => (
+        <Show when={data?.length <= 3}>
+          {data?.map((badge) => (
             <LcBadge
               key={badge.name}
               badge={badge}
@@ -85,46 +90,48 @@ export const Badges = ({ data }: BadgesProps) => {
             />
           ))}
         </Show>
-        <Show when={data.length > 3}>
+        <Show when={data?.length > 3}>
           <div className="flex items-start justify-center gap-6">
             <LcBadge
-              badge={data[1]}
+              badge={data?.[1]}
               className="w-[56px] h-[56px]"
               showFooter={true}
             />
             <LcBadge
-              badge={data[0]}
+              badge={data?.[0]}
               className="w-[56px] h-[56px]"
               showFooter={true}
             />
             <LcBadge
-              badge={data[2]}
+              badge={data?.[2]}
               className="w-[56px] h-[56px]"
               showFooter={true}
             />
-            <div className="relative" onClick={toggleModal}>
-              <img
-                data-tooltip-id="all-badges-tooltip"
-                data-tooltip-content="Show more badges"
-                src={getUrl(data[3].icon)}
-                alt="badge gif"
-                className="w-[56px] h-[56px] cursor-pointer opacity-50"
-              />
-              <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-                <HorizontalThreeDotsIcon className="text-xl text-white cursor-pointer" />
+            <Show when={!!data?.[3]}>
+              <div className="relative" onClick={toggleModal}>
+                <img
+                  data-tooltip-id="all-badges-tooltip"
+                  data-tooltip-content="Show more badges"
+                  src={getUrl(data?.[3]?.icon)}
+                  alt="badge gif"
+                  className="w-[56px] h-[56px] cursor-pointer opacity-50"
+                />
+                <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+                  <HorizontalThreeDotsIcon className="text-xl text-white cursor-pointer" />
+                </div>
+                <Tooltip
+                  id="all-badges-tooltip"
+                  style={{
+                    backgroundColor: "rgb(48, 48, 48, 0.4)",
+                    color: "#fff",
+                    borderRadius: 6,
+                    fontSize: 12,
+                    border: "1px solid #fff",
+                  }}
+                  noArrow={true}
+                />
               </div>
-              <Tooltip
-                id="all-badges-tooltip"
-                style={{
-                  backgroundColor: "rgb(48, 48, 48, 0.4)",
-                  color: "#fff",
-                  borderRadius: 6,
-                  fontSize: 12,
-                  border: "1px solid #fff",
-                }}
-                noArrow={true}
-              />
-            </div>
+            </Show>
           </div>
         </Show>
       </Show>
