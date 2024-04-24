@@ -61,5 +61,13 @@ const Example = () => {
 export default Example;
 ```
 
+### Screenshots
+![image](https://github.com/abhinandanmishra1/leetcode-profiler/assets/64205626/f78ba6d5-3c9f-46b5-9269-ae564e965130)
+![image](https://github.com/abhinandanmishra1/leetcode-profiler/assets/64205626/5fe563a1-3454-4d4c-a3b8-a8d4f5b990d8)
+![image](https://github.com/abhinandanmishra1/leetcode-profiler/assets/64205626/7c34e864-423e-433b-93c3-221e8b63a20e)
+
+
+
+
 > Remember to install and initialize Tailwind CSS to apply styling to the above component.
 Happy coding! 🚀🔥
