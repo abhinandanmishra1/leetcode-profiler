@@ -7,7 +7,7 @@ The Leetcode Profiler is a React npm package that provides ready-to-use componen
 
 This package fetches data from a backend server. A running instance of the server is required for the components to function correctly. You must provide the server's URL to the `<LeetcodeProfilerProvider>` component for the package to work.
 
-**Backend Server Repository**: `coding-profile-server`
+**Backend Server Repository**: [`coding-profile-server`](https://github.com/abhinandanmishra1/coding-profile-server)
 
 ## 🚀 Usage Instructions
 
